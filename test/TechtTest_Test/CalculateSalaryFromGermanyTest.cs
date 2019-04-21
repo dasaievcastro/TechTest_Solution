@@ -1,5 +1,6 @@
 ﻿using System;
 using TechTest_Domain.Builders.Employees;
+using TechTest_Domain.Classes.CalculateSalaries.Germany;
 using Xunit;
 
 namespace TechtTest_Test

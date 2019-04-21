@@ -21,6 +21,7 @@
     <Folder Include="Classes\CalculateSalaries\Base\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Classes\CalculateSalaries\Italy\" />
+    <Folder Include="Classes\CalculateSalaries\Germany\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.2.3" />
