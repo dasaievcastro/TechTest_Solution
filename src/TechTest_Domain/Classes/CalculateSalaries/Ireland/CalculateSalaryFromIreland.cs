@@ -11,5 +11,7 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
         {
             this.GrossAmount = e.HourRate * e.HoursWorked;
         }
+
+
     }
 }
