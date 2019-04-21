@@ -14,5 +14,10 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Germany
         {
             TaxRateAmount = (GrossAmount > 400) ? GrossAmount * .32 : GrossAmount * .25;
         }
+
+        public override void CalculatePension()
+        {
+            PensionAmount = GrossAmount * .02;
+        }
     }
 }
