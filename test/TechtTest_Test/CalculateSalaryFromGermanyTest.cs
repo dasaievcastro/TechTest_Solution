@@ -61,5 +61,18 @@ namespace TechtTest_Test
             var PensionAmountTemplate = HourRate * HourWorked * .02;
             Assert.Equal(calculate.PensionAmount, PensionAmountTemplate);
         }
+
+        [Fact]
+        /*the net amount value */
+        public void Should_calculate_the_net_amount()
+        {
+            var HourWorked = 60;
+            var HourRate = 10;
+            var GermanyEmployee = BuilderEmployee.Create().EarnsForHour(HourRate).WorkedFor(HourWorked).Build();
+            CalculateSalaryFromGermany calculate = new CalculateSalaryFromGermany(GermanyEmployee);
+            calculate.CalculateNetAmount();
+            var NetAmountTemplate = calculate.GrossAmount - calculate.TaxRateAmount - calculate.SocialTaxAmount - calculate.PensionAmount;
+            Assert.Equal(calculate.NetAmount, NetAmountTemplate);
+        }
     }
 }
