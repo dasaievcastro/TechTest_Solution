@@ -7,7 +7,7 @@ namespace TechTest_Domain.Builders.Employees
     public class BuilderEmployee
     {
         private int HoursWorked;
-        private int HourRate;
+        private double HourRate;
         private Countries Location;
 
         public static BuilderEmployee Create()
@@ -21,13 +21,13 @@ namespace TechTest_Domain.Builders.Employees
             return this;
         }
 
-        public BuilderEmployee EarnsForHour(int _hoursRate)
+        public BuilderEmployee EarnsForHour(double _hoursRate)
         {
             HourRate = _hoursRate;
             return this;
         }
 
-        public BuilderEmployee LivesIn(int _location)
+        public BuilderEmployee LivesIn(double _location)
         {
             Location = (Countries)_location;
             return this;

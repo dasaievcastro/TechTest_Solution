@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechtTest_Test", "test\Tech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTest_Domain", "src\TechTest_Domain\TechTest_Domain.csproj", "{24F595A3-7B08-46E0-95FD-EE4F47CA7FA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTest_Aplication", "src\TechTest_Aplication\TechTest_Aplication.csproj", "{FD16CFF0-BC50-4B86-8752-8E6294AA17C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{24F595A3-7B08-46E0-95FD-EE4F47CA7FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F595A3-7B08-46E0-95FD-EE4F47CA7FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F595A3-7B08-46E0-95FD-EE4F47CA7FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD16CFF0-BC50-4B86-8752-8E6294AA17C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD16CFF0-BC50-4B86-8752-8E6294AA17C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD16CFF0-BC50-4B86-8752-8E6294AA17C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD16CFF0-BC50-4B86-8752-8E6294AA17C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

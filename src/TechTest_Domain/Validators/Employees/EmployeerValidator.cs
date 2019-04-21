@@ -28,7 +28,7 @@ namespace TechTest_Domain.Validators.Employees
             return (_hourWorked > 0);
         }
 
-        public bool BeAValideHourRate(int _hourRate)
+        public bool BeAValideHourRate(double _hourRate)
         {
             return (_hourRate > 0);
         }

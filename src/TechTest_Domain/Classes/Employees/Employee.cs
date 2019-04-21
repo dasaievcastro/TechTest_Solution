@@ -6,10 +6,10 @@ namespace TechTest_Domain.Classes.Employees
     public class Employee
     {
         public int HoursWorked { get; set; }
-        public int HourRate { get; set; }
+        public double HourRate { get; set; }
         public Countries Location { get; set; }
 
-        public Employee(int _hoursWorked, int _hourRate, Countries _location)
+        public Employee(int _hoursWorked, double _hourRate, Countries _location)
         {
             this.HoursWorked = _hoursWorked;
             this.HourRate = _hourRate;

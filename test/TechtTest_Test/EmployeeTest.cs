@@ -13,14 +13,14 @@ namespace TechtTest_Test
     public class EmployeeTest
     {
         private int _HoursWorked;
-        private int _HourRate;
+        private double _HourRate;
         private int _Location;
         EmployeeValidator validator;
 
         public EmployeeTest()
         {
             _HoursWorked = 10;
-            _HourRate = 40;
+            _HourRate = (double)40;
             _Location = 1;
             validator = new EmployeeValidator();
         }
@@ -31,7 +31,7 @@ namespace TechtTest_Test
             var EmployeeTemplate = new
             {
                 HoursWorked = 10,
-                HourRate = 40,
+                HourRate = (double)40,
                 Location = (Countries)1
 
             };
