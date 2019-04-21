@@ -49,5 +49,13 @@ namespace TechtTest_Test
             validator.ShouldHaveValidationErrorFor(e => e.HoursWorked, EmployeeObjTest);
 
         }
+
+        [Fact]
+        public void Should_have_error_when_HourRate_is_null_or_Invalid()
+        {
+            Employee EmployeeObjTest = BuilderEmployee.Create().EarnsForHour(-1).Build();
+            validator.ShouldHaveValidationErrorFor(e => e.HourRate, EmployeeObjTest);
+
+        }
     }
 }
