@@ -1,6 +1,7 @@
 ﻿using System;
 using FluentValidation;
 using TechTest_Domain.Classes.Employees;
+using TechTest_Domain.ENums.Countries;
 
 namespace TechTest_Domain.Validators.Employees
 {
@@ -17,6 +18,9 @@ namespace TechTest_Domain.Validators.Employees
             .Cascade(CascadeMode.StopOnFirstFailure)
             .NotEmpty().WithMessage("Please enter a Hour Rate")
             .Must(BeAValideHourRate).WithMessage("Please enter a valid Hour Rate");
+
+            RuleFor(p => p.Location)
+            .Must(BeAValideLocation).WithMessage("Please choose a valid Location");
         }
 
         public bool BeAValideHourWorked(int _hourWorked)
@@ -27,6 +31,12 @@ namespace TechTest_Domain.Validators.Employees
         public bool BeAValideHourRate(int _hourRate)
         {
             return (_hourRate > 0);
+        }
+
+
+        public bool BeAValideLocation(Countries _country)
+        {
+            return (Enum.IsDefined(typeof(Countries), _country));
         }
     }
 }
