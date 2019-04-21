@@ -48,5 +48,18 @@ namespace TechtTest_Test
             var TaxeRateAmountTemplate = HourRate * HourWorked * .32;
             Assert.Equal(calculate.TaxRateAmount, TaxeRateAmountTemplate);
         }
+
+        [Fact]
+        /*a compulsory pension contribution of 2% is applied*/
+        public void Should_calculate_the_pension_tax_of_2_percent()
+        {
+            var HourWorked = 60;
+            var HourRate = 10;
+            var GermanyEmployee = BuilderEmployee.Create().EarnsForHour(HourRate).WorkedFor(HourWorked).Build();
+            CalculateSalaryFromGermany calculate = new CalculateSalaryFromGermany(GermanyEmployee);
+            calculate.CalculatePension();
+            var PensionAmountTemplate = HourRate * HourWorked * .02;
+            Assert.Equal(calculate.PensionAmount, PensionAmountTemplate);
+        }
     }
 }
