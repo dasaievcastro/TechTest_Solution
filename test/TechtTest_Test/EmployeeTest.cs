@@ -26,4 +26,18 @@ namespace TechtTest_Test
             EmployeeTemplate.ToExpectedObject().ShouldMatch(EmployeeObject);
         }
     }
+
+    public class Employee
+    {
+        public int HoursWorked { get; set; }
+        public int HourRate { get; set; }
+        public int Location { get; set; }
+
+        public Employee(int _hoursWorked, int _hourRate, int _location)
+        {
+            this.HoursWorked = _hoursWorked;
+            this.HourRate = _hourRate;
+            this.Location = _location;
+        }
+    }
 }
