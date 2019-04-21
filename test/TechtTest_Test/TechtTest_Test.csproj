@@ -13,4 +13,7 @@
     <PackageReference Include="ExpectedObjects" Version="2.3.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TechTest_Domain\TechTest_Domain.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Classes\Employees\" />
+    <Folder Include="ENums\" />
+    <Folder Include="ENums\Countries\" />
+    <Folder Include="Builders\" />
+    <Folder Include="Builders\Employees\" />
+  </ItemGroup>
+</Project>

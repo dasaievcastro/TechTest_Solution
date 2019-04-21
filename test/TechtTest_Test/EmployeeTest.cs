@@ -1,5 +1,7 @@
 using System;
 using ExpectedObjects;
+using TechTest_Domain.Builders.Employees;
+using TechTest_Domain.ENums.Countries;
 using Xunit;
 
 namespace TechtTest_Test
@@ -33,60 +35,5 @@ namespace TechtTest_Test
         }
     }
 
-    public class Employee
-    {
-        public int HoursWorked { get; set; }
-        public int HourRate { get; set; }
-        public Countries Location { get; set; }
 
-        public Employee(int _hoursWorked, int _hourRate, Countries _location)
-        {
-            this.HoursWorked = _hoursWorked;
-            this.HourRate = _hourRate;
-            this.Location = _location;
-        }
-    }
-
-    public enum Countries
-    {
-        Ireland,
-        Italy,
-        Germany
-    }
-
-    public class BuilderEmployee
-    {
-        private int HoursWorked;
-        private int HourRate;
-        private Countries Location;
-
-        public static BuilderEmployee Create()
-        {
-            return new BuilderEmployee();
-        }
-
-        public BuilderEmployee WorkedFor(int _hoursWorked)
-        {
-            HoursWorked = _hoursWorked;
-            return this;
-        }
-
-        public BuilderEmployee EarnsForHour(int _hoursRate)
-        {
-            HourRate = _hoursRate;
-            return this;
-        }
-
-        public BuilderEmployee LivesIn(int _location)
-        {
-            Location = (Countries)_location;
-            return this;
-        }
-
-        public Employee Build()
-        {
-            return new Employee(this.HoursWorked, this.HourRate, this.Location);
-        }
-
-    }
 }
