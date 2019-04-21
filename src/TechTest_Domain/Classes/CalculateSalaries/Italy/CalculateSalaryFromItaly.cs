@@ -9,5 +9,10 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Italy
         public CalculateSalaryFromItaly(Employee e) : base(e)
         {
         }
+
+        public override void CalculateTaxRate()
+        {
+            TaxRateAmount = GrossAmount * .25;
+        }
     }
 }
