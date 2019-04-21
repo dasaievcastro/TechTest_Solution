@@ -6,6 +6,7 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
     public class CalculateSalaryFromIreland
     {
         public double GrossAmount { get; protected set; }
+        public double NetAmount { get; protected set; }
         public double TaxRateAmount { get; protected set; }
         public double SocialTaxAmount { get; protected set; }
         public double PensionAmount { get; protected set; }
@@ -28,6 +29,14 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
         public void CalculatePension()
         {
             PensionAmount = GrossAmount * .04;
+        }
+
+        public virtual void CalculateNetAmount()
+        {
+            CalculateTaxRate();
+            CalculateSocialContribution();
+            CalculatePension();
+            NetAmount = this.GrossAmount - this.TaxRateAmount - this.SocialTaxAmount - this.PensionAmount;
         }
     }
 }
