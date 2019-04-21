@@ -20,6 +20,7 @@
     <Folder Include="Classes\CalculateSalaries\Ireland\" />
     <Folder Include="Classes\CalculateSalaries\Base\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Classes\CalculateSalaries\Italy\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.2.3" />
