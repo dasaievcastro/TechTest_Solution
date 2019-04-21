@@ -9,5 +9,10 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Germany
         public CalculateSalaryFromGermany(Employee e) : base(e)
         {
         }
+
+        public override void CalculateTaxRate()
+        {
+            TaxRateAmount = (GrossAmount > 400) ? GrossAmount * .32 : GrossAmount * .25;
+        }
     }
 }
