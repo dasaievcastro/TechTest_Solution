@@ -1,5 +1,6 @@
 ﻿using System;
 using TechTest_Domain.Builders.Employees;
+using TechTest_Domain.Classes.CalculateSalaries.Ireland;
 using TechTest_Domain.Classes.Employees;
 using Xunit;
 
@@ -24,13 +25,5 @@ namespace TechtTest_Test
         }
     }
 
-    public class CalculateSalaryFromIreland 
-    {
-        public double GrossAmount { get; protected set; }
 
-        public CalculateSalaryFromIreland(Employee e)
-        {
-            this.GrossAmount = e.HourRate * e.HoursWorked;
-        }
-    }
 }
