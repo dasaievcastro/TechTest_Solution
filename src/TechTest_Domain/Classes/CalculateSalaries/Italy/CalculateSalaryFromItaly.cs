@@ -14,5 +14,11 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Italy
         {
             TaxRateAmount = GrossAmount * .25;
         }
+
+        public override void CalculateSocialContribution()
+        {
+            double ExtraTax = (GrossAmount - 500) / 100;
+            SocialTaxAmount = Math.Round((GrossAmount <= 500) ? GrossAmount * .09 : GrossAmount * (.09 + (ExtraTax / 100)));
+        }
     }
 }
