@@ -14,5 +14,10 @@
     <Folder Include="ENums\Countries\" />
     <Folder Include="Builders\" />
     <Folder Include="Builders\Employees\" />
+    <Folder Include="Validators\" />
+    <Folder Include="Validators\Employees\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.2.3" />
   </ItemGroup>
 </Project>

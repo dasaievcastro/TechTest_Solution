@@ -5,6 +5,7 @@ using FluentValidation.TestHelper;
 using TechTest_Domain.Builders.Employees;
 using TechTest_Domain.Classes.Employees;
 using TechTest_Domain.ENums.Countries;
+using TechTest_Domain.Validators.Employees;
 using Xunit;
 
 namespace TechtTest_Test
@@ -14,12 +15,14 @@ namespace TechtTest_Test
         private int _HoursWorked;
         private int _HourRate;
         private int _Location;
+        EmployeeValidator validator;
 
         public EmployeeTest()
         {
             _HoursWorked = 10;
             _HourRate = 40;
             _Location = 1;
+            validator = new EmployeeValidator();
         }
 
         [Fact]
@@ -40,27 +43,11 @@ namespace TechtTest_Test
         [Fact]
         public void Should_have_error_when_HourWorked_is_null_or_Negative()
         {
-            EmployeeValidator validator = new EmployeeValidator();
+            validator = new EmployeeValidator();
 
             Employee EmployeeObjTest = BuilderEmployee.Create().WorkedFor(-1).Build();
             validator.ShouldHaveValidationErrorFor(e => e.HoursWorked, EmployeeObjTest);
 
-        }
-    }
-
-    public class EmployeeValidator : AbstractValidator<Employee>
-    {
-        public EmployeeValidator()
-        {
-            RuleFor(p => p.HoursWorked)
-            .Cascade(CascadeMode.StopOnFirstFailure)
-            .NotEmpty().WithMessage("Please enter a Hour Worked")
-            .Must(BeAValideHourWorked).WithMessage("Please enter a valid Hour Worked");
-
-        }
-        public bool BeAValideHourWorked(int _hourWorked)
-        {
-            return (_hourWorked > 0);
         }
     }
 }
