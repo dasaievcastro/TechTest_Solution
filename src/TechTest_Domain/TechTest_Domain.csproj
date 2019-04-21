@@ -23,6 +23,8 @@
     <Folder Include="Classes\CalculateSalaries\Italy\" />
     <Folder Include="Classes\CalculateSalaries\Germany\" />
     <Folder Include="Classes\ReadData\" />
+    <Folder Include="Strategy\" />
+    <Folder Include="Classes\ShowInformation\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.2.3" />
