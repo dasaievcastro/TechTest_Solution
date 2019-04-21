@@ -1,6 +1,7 @@
 using System;
 using ExpectedObjects;
 using TechTest_Domain.Builders.Employees;
+using TechTest_Domain.Classes.Employees;
 using TechTest_Domain.ENums.Countries;
 using Xunit;
 
@@ -32,6 +33,16 @@ namespace TechtTest_Test
             var EmployeeObject = BuilderEmployee.Create().WorkedFor(_HoursWorked).EarnsForHour(_HourRate).LivesIn(_Location).Build();
             //I make a simple compare just to check if the EmployeeTemplate are equal to Employee.
             EmployeeTemplate.ToExpectedObject().ShouldMatch(EmployeeObject);
+        }
+
+        [Fact]
+        public void Should_have_error_when_HourWorked_is_null_or_Negative()
+        {
+            var validator = new EmployeeValidator();
+
+            Employee EmployeeObjTest = BuilderEmployee.Create().WorkedFor(-1).Build();
+            validator.ShouldHaveValidationErrorFor(e => e.HoursWorked, EmployeeObjTest);
+
         }
     }
 
