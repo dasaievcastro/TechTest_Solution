@@ -57,5 +57,13 @@ namespace TechtTest_Test
             validator.ShouldHaveValidationErrorFor(e => e.HourRate, EmployeeObjTest);
 
         }
+
+        [Fact]
+        public void Should_have_error_when_Location_is_invalid()
+        {
+            Employee EmployeeObjTest = BuilderEmployee.Create().LivesIn(4).Build();
+            validator.ShouldHaveValidationErrorFor(e => e.Location, EmployeeObjTest);
+
+        }
     }
 }
