@@ -36,7 +36,18 @@ namespace TechtTest_Test
             var TaxeRateAmountTemplate = HourRate * HourWorked * .25;
             Assert.Equal(calculate.TaxRateAmount, TaxeRateAmountTemplate);
         }
+
+        [Fact]
+        /*income tax at a rate of 25% for the first €600 and 40% thereafter*/
+        public void Should_calculate_the_tax_rate_of_40_percent_if_the_grossamount_is_greater_than_600_euro()
+        {
+            var HourWorked = 61;
+            var HourRate = 10;
+            var IrelandEmployee = BuilderEmployee.Create().EarnsForHour(HourRate).WorkedFor(HourWorked).Build();
+            CalculateSalaryFromIreland calculate = new CalculateSalaryFromIreland(IrelandEmployee);
+            calculate.CalculateTaxRate();
+            var TaxeRateAmountTemplate = HourRate * HourWorked * .40;
+            Assert.Equal(calculate.TaxRateAmount, TaxeRateAmountTemplate);
+        }
     }
-
-
 }
