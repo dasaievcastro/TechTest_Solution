@@ -50,7 +50,6 @@ namespace TechTest_Aplication
             {
                 information.Error(ex.Message);
             }
-
         }
     }
 }
