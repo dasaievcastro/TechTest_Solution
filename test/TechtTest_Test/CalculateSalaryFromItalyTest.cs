@@ -63,5 +63,18 @@ namespace TechtTest_Test
             var SocialTaxAmountTemplate = Math.Round(GrossAmountTemplate * (.09 + (ExtraTax / 100)));
             Assert.Equal(calculate.SocialTaxAmount, SocialTaxAmountTemplate);
         }
+
+        [Fact]
+        /*the net amount value */
+        public void Should_calculate_the_net_amount()
+        {
+            var HourWorked = 60;
+            var HourRate = 10;
+            var ItalyEmployee = BuilderEmployee.Create().EarnsForHour(HourRate).WorkedFor(HourWorked).Build();
+            CalculateSalaryFromItaly calculate = new CalculateSalaryFromItaly(ItalyEmployee);
+            calculate.CalculateNetAmount();
+            var NetAmountTemplate = calculate.GrossAmount - calculate.TaxRateAmount - calculate.SocialTaxAmount - calculate.PensionAmount;
+            Assert.Equal(calculate.NetAmount, NetAmountTemplate);
+        }
     }
 }
