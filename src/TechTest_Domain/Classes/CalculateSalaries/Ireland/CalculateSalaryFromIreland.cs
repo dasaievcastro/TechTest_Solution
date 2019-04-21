@@ -7,6 +7,7 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
     {
         public double GrossAmount { get; protected set; }
         public double TaxRateAmount { get; protected set; }
+        public double SocialTaxAmount { get; protected set; }
 
         public CalculateSalaryFromIreland(Employee e)
         {
@@ -16,6 +17,11 @@ namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
         public void CalculateTaxRate()
         {
             TaxRateAmount = (GrossAmount > 600) ? GrossAmount * .4 : GrossAmount * .25;
+        }
+
+        public void CalculateSocialContribution()
+        {
+            SocialTaxAmount = (GrossAmount > 500) ? GrossAmount * .08 : GrossAmount * .07;
         }
     }
 }
