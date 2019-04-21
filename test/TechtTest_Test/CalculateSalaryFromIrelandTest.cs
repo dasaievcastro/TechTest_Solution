@@ -49,5 +49,18 @@ namespace TechtTest_Test
             var TaxeRateAmountTemplate = HourRate * HourWorked * .40;
             Assert.Equal(calculate.TaxRateAmount, TaxeRateAmountTemplate);
         }
+
+        [Fact]
+        /*a Universal social charge of 7% is applied for the first €500 euro and 8% thereafter*/
+        public void Should_calculate_the_social_contribution_tax_of_7_percent_if_the_grossamount_is_less_than_500_euro()
+        {
+            var HourWorked = 50;
+            var HourRate = 10;
+            var IrelandEmployee = BuilderEmployee.Create().EarnsForHour(HourRate).WorkedFor(HourWorked).Build();
+            CalculateSalaryFromIreland calculate = new CalculateSalaryFromIreland(IrelandEmployee);
+            calculate.CalculateSocialContribution();
+            var SocialTaxAmountTemplate = HourRate * HourWorked * .07;
+            Assert.Equal(calculate.SocialTaxAmount, SocialTaxAmountTemplate);
+        }
     }
 }
