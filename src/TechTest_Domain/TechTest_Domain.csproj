@@ -18,6 +18,8 @@
     <Folder Include="Validators\Employees\" />
     <Folder Include="Classes\CalculateSalaries\" />
     <Folder Include="Classes\CalculateSalaries\Ireland\" />
+    <Folder Include="Classes\CalculateSalaries\Base\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.2.3" />

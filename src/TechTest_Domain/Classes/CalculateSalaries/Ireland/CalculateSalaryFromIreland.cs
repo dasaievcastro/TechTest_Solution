@@ -1,42 +1,29 @@
 ﻿using System;
+using TechTest_Domain.Classes.CalculateSalaries.Base;
 using TechTest_Domain.Classes.Employees;
 
 namespace TechTest_Domain.Classes.CalculateSalaries.Ireland
 {
-    public class CalculateSalaryFromIreland
+    public class CalculateSalaryFromIreland : CalculateSalaryBase
     {
-        public double GrossAmount { get; protected set; }
-        public double NetAmount { get; protected set; }
-        public double TaxRateAmount { get; protected set; }
-        public double SocialTaxAmount { get; protected set; }
-        public double PensionAmount { get; protected set; }
 
-        public CalculateSalaryFromIreland(Employee e)
+        public CalculateSalaryFromIreland(Employee e) : base(e)
         {
-            this.GrossAmount = e.HourRate * e.HoursWorked;
         }
 
-        public void CalculateTaxRate()
+        public override void CalculateTaxRate()
         {
             TaxRateAmount = (GrossAmount > 600) ? GrossAmount * .4 : GrossAmount * .25;
         }
 
-        public void CalculateSocialContribution()
+        public override void CalculateSocialContribution()
         {
             SocialTaxAmount = (GrossAmount > 500) ? GrossAmount * .08 : GrossAmount * .07;
         }
 
-        public void CalculatePension()
+        public override void CalculatePension()
         {
             PensionAmount = GrossAmount * .04;
-        }
-
-        public virtual void CalculateNetAmount()
-        {
-            CalculateTaxRate();
-            CalculateSocialContribution();
-            CalculatePension();
-            NetAmount = this.GrossAmount - this.TaxRateAmount - this.SocialTaxAmount - this.PensionAmount;
         }
     }
 }
